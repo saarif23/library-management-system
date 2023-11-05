@@ -4,7 +4,7 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 import { MdDeleteSweep } from "react-icons/md";
 import useAxios from "../Hooks/useAxios";
 
-const SingleBorrowBook = ({ book }) => {
+const SingleBorrowBook = ({ book, refetch }) => {
     const axios = useAxios();
     const { _id, book_name, image, author_name, book_category, quantity, rating } = book;
 
@@ -23,19 +23,18 @@ const SingleBorrowBook = ({ book }) => {
                 })
                     .then(res => {
                         console.log(res.data)
-                        if (res.data.deletedCount > 0) {
+                        if (res?.data?.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
                                 'Your Coffee has been deleted.',
                                 'success'
                             )
-                            // const remaining = myCartProduct.filter(item => item._id !== _id)
-                            // setMyCartProduct(remaining);
+                            refetch();
                         }
                     })
                     .catch(error => {
                         console.log(error)
-                      
+
                     })
 
 
@@ -69,6 +68,7 @@ const SingleBorrowBook = ({ book }) => {
 };
 SingleBorrowBook.propTypes = {
     book: PropTypes.object.isRequired,
+    refetch: PropTypes.func
 
 }
 export default SingleBorrowBook;

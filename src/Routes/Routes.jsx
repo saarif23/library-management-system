@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import BookCard from "../Components/BookCard";
 import BookDetails from "../Pages/BookDetails";
+import UpdateBooks from "../Pages/UpdateBooks";
 
 
 const Routes = createBrowserRouter([
@@ -24,8 +25,13 @@ const Routes = createBrowserRouter([
                 element: <AddBooks></AddBooks>
             },
             {
+                path: '/updateBooks',
+                element: <UpdateBooks></UpdateBooks>
+            },
+            {
                 path: '/allBooks',
-                element: <AllBooks></AllBooks>
+                element: <AllBooks></AllBooks>,
+                loader: ()=>fetch('http://localhost:5000/books')
             },
             {
                 path: '/borrowedBooks',
@@ -33,14 +39,14 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/category/:book_category',
-                element:<BookCard></BookCard>,
-                loader: ()=>fetch('http://localhost:5000/books')
+                element: <BookCard></BookCard>,
+                loader: () => fetch('http://localhost:5000/books')
             },
             {
                 path: '/book/:_id',
                 element: <BookDetails></BookDetails>,
                 loader: () => fetch('http://localhost:5000/books'),
-                
+
             },
         ]
     },
