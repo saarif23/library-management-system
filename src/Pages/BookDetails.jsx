@@ -28,8 +28,8 @@ const BookDetails = () => {
     const handleAddToBorrow = () => {
 
         axios.post('/borrowBooks', addWithUser)
-            .then(() => {
-
+            .then((res) => {
+                console.log(res.data);
                 Swal.fire({
                     title: "Success!",
                     text: 'Book Add to Borrowed Book',
@@ -37,9 +37,31 @@ const BookDetails = () => {
                 });
                 setTotalQuantity(totalQuantity - 1)
 
+                // update quantity
+
+
+
             })
             .catch(error => {
                 console.log(error)
+            })
+
+        axios.put(`/books/${_id}`, { totalQuantity: totalQuantity - 1 })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount === 1) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+
+
             })
 
         // axios.put(`/books/${_id}/quantity`, { totalQuantity })
@@ -47,28 +69,6 @@ const BookDetails = () => {
         //     .catch(error => {
         //         console.log(error)
         //     })
-        fetch(`http://localhost:5000/books/${_id}`, {
-            method: "PUT",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(totalQuantity)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount === 1) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Product Updated Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-
-                }
-
-            })
-
 
     }
 
@@ -108,7 +108,7 @@ const BookDetails = () => {
                 <div className=" p-5 lg:flex justify-between bg-gray-100 rounded-lg shadow-xl ">
                     <h3 className="max-md:text-2xl text-4xl flex-1  font-medium">{book_name} </h3>
                     <div className="flex justify-between items-center gap-10">
-                        <p className="max-md:text-2xl font-semibold text-3xl">${totalQuantity} </p>
+                        <p className="max-md:text-2xl font-semibold text-3xl">{totalQuantity} </p>
                         {
                             totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer btn btn-sm btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
                         }
@@ -136,7 +136,7 @@ const BookDetails = () => {
                                 </div>
                             </div>
                             <div className="flex items-center gap-5">
-                                <p className=" font-semibold text-3xl">${totalQuantity} </p>
+                                <p className=" font-semibold text-3xl">{totalQuantity} </p>
                                 <div className="border-l-2 pl-5">
                                     <p>4 interest-free payments of $87.49 with</p>
                                     <div className="flex gap-2 items-center">
