@@ -6,7 +6,7 @@ import useAxios from "../Hooks/useAxios";
 
 const SingleBorrowBook = ({ book, refetch }) => {
     const axios = useAxios();
-    const { _id, book_name, image, author_name, book_category, rating } = book;
+    const { _id, book_name, image, author_name, book_category, rating, returnDate, borrowedDate } = book;
 
     const handleDeleteToMyCart = (_id) => {
         Swal.fire({
@@ -42,7 +42,7 @@ const SingleBorrowBook = ({ book, refetch }) => {
         })
     }
     return (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto ">
             <div className='flex max-md:flex-col items-center flex-row max-md:justify-center 
        justify-between max-w-6xl  border rounded-lg max-md:gap-5  my-5 h-[450px]'>
                 {/* <Helmet>
@@ -55,8 +55,8 @@ const SingleBorrowBook = ({ book, refetch }) => {
                         <h3 className="text-3xl font-Roboto font-bold pb-8">{book_name}</h3>
                         <p className='font-Playfair'>Category of Book : {book_category}</p>
                         <p className='font-Playfair'>Author Name : {author_name}</p>
-                        <p>Borrow Date :</p>
-                        <p>Return Date :</p>
+                        <p>Borrow Date : {borrowedDate}</p>
+                        <p>Return Date :  {returnDate}</p>
                         <div className="flex max-md:justify-center gap-3 pb-10">
                             <ReactStarsRating className="flex" value={rating} />
                             <p>{rating} (15 reviews)</p>

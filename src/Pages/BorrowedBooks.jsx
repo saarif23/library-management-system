@@ -6,7 +6,7 @@ import useBorrowBooks from "../Hooks/useBorrowBooks";
 const BorrowedBooks = () => {
     const { user } = useAuth();
     const [data, isPending, refetch] = useBorrowBooks();
-    // const [userBorrowBooks, setUserBorrowBooks] = useState(data);
+  
     if (isPending) {
         return <p>loding...........</p>
     }
@@ -16,7 +16,7 @@ const BorrowedBooks = () => {
 
 
     return (
-        <div>
+        <div className="min-h-screen">
             {
                 dataWithUser.map(book => <SingleBorrowBook key={book._id} book={book} refetch={refetch}></SingleBorrowBook>)
             }

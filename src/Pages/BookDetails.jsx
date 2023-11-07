@@ -10,37 +10,50 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 import useAuth from "../Hooks/useAuth";
 import useAxios from "../Hooks/useAxios";
 import { useState } from "react";
+import useBorrowBooks from "../Hooks/useBorrowBooks";
 const BookDetails = () => {
     const { user } = useAuth();
     const axios = useAxios();
     const { displayName, email } = user;
     const { _id } = useParams();
     const books = useLoaderData();
+    const [data, isPending, refetch] = useBorrowBooks();
 
     //
-
     const bookDetails = books.find(book => book._id === _id);
     const { book_name, image, author_name, book_category, quantity, rating } = bookDetails;
     const [totalQuantity, setTotalQuantity] = useState(quantity);
+    const [borrowedDate, setBorrowedDate] = useState("");
+    const [returnDate, setReturnDate] = useState("");
 
-    const addWithUser = { displayName, email, book_name, author_name, image, book_category, rating }
+    const addWithUser = { displayName, email, book_name, author_name, image, book_category, rating, borrowedDate, returnDate }
+
+    if (isPending) {
+        return <p>loding ...........</p>
+    }
+
+
 
     const handleAddToBorrow = () => {
-
+        if (data.filter(singleData => singleData.email === user.email && singleData.book_name === book_name).length > 0) {
+            return Swal.fire({
+                title: "error!",
+                text: 'Already Borrow this book take another one',
+                icon: "error",
+            });
+        }
         axios.post('/borrowBooks', addWithUser)
             .then((res) => {
                 console.log(res.data);
-                Swal.fire({
-                    title: "Success!",
-                    text: 'Book Add to Borrowed Book',
-                    icon: "success",
-                });
-                setTotalQuantity(totalQuantity - 1)
-
-                // update quantity
-
-
-
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: 'Book Add to Borrowed Book',
+                        icon: "success",
+                    });
+                    setTotalQuantity(totalQuantity - 1)
+                    refetch()
+                }
             })
             .catch(error => {
                 console.log(error)
@@ -48,7 +61,6 @@ const BookDetails = () => {
 
         axios.put(`/books/${_id}`, { totalQuantity: totalQuantity - 1 })
             .then(res => {
-                console.log(res.data);
                 if (res.data.modifiedCount === 1) {
                     Swal.fire({
                         title: 'Success!',
@@ -60,19 +72,9 @@ const BookDetails = () => {
             })
             .catch(error => {
                 console.log(error)
-
-
             })
 
-        // axios.put(`/books/${_id}/quantity`, { totalQuantity })
-        //     .then(res => console.log(res))
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
-
     }
-
-
 
     const modal = <>
 
@@ -82,11 +84,22 @@ const BookDetails = () => {
             <div className="modal-box text-black text-center">
                 <div className="flex gap-5 items-center mb-5">
                     <p className="text-xl font-semibold">Borrow Date :</p>
-                    <input type="date" name="borrowedDate" id="" />
+                    <input
+                        type="date"
+                        name="borrowedDate"
+                        value={borrowedDate}
+                        onChange={(e) => setBorrowedDate(e.target.value)}
+                    />
                 </div>
                 <div className="flex gap-5 items-center ">
                     <p className="text-xl font-semibold">Return Date :</p>
-                    <input type="date" name="returnDate" id="" />
+                    <input
+                        type="date"
+                        name="returnDate"
+                        value={returnDate}
+                        onChange={(e) => setReturnDate(e.target.value)}
+                    />
+
                 </div>
                 <div className="modal-action flex justify-center">
                     <form method="dialog">
