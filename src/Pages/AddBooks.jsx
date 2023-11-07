@@ -37,26 +37,26 @@ const AddBooks = () => {
 
     }
     return (
-        <div className=" text-center min-h-screen bg-cover bg-center pb-16 " style={{ backgroundImage: 'url("https://i.ibb.co/hCNJXM2/addproduct-bg.jpg")' }}>
+        <div className=" text-center min-h-screen bg-cover bg-center pb-16 " style={{ backgroundImage: 'url("")' }}>
 
         <Link to="/"><button className="p-5 flex font-Playfair items-center mx-auto hover:text-sky-700 hover:underline">Back To Home</button></Link>
         <div className="max-w-5xl mx-auto py-8 rounded-md">
             <div className="max-w-2xl space-y-3 mx-auto">
-                <h3 className="text-3xl text-center font-Roboto text-[#374151] font-extrabold">Add New Books</h3>
-                <p className="font-Playfair">Product creation is an excellent time for optimizing your product title, description, and image alt tags for search engines. See our Guide to SEO for advice and tips to get started with SEO in BigCommerce.</p>
+                <h3 className="text-3xl text-center font-Roboto  font-extrabold">Add New Books</h3>
+                <p className="font-Playfair">Ignorant people you get to know them by the way they speak, behave, and live – they are disorganised. The difference between ignorant people and knowledgeable people – ignorant people are foolish knowledgeable people are wise. Foolishness is not sold anywhere; it is a fatal disease acquired by persons who refuse to learn. Wisdom is not sold anywhere; it is a reward for persons who are hungry for knowledge</p>
             </div>
             <form onSubmit={handleFromSubmit} className="px-10 font-Playfair">
                 {/* From row with name and Brand name */}
                 <div className="flex max-md:flex-col flex-row gap-5">
                     <div className="form-control max-md:w-full w-1/2">
                         <label className="label">
-                            <span className="label-text  text-black">Book Name</span>
+                            <span className="label-text ">Book Name</span>
                         </label>
                         <input type="text" name="name" required placeholder="Enter Book Name" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control max-md:w-full w-1/2">
                         <label className="label">
-                            <span className="label-text  text-black">Author Name</span>
+                            <span className="label-text ">Author Name</span>
                         </label>
                         <input type="text" name="brandName" required placeholder="Enter Author Name " className="input input-bordered w-full" />
                     </div>
@@ -65,13 +65,13 @@ const AddBooks = () => {
                 <div className="flex max-md:flex-col flex-row gap-5">
                     <div className="form-control max-md:w-full w-1/2">
                         <label className="label">
-                            <span className="label-text  text-black">Book Category</span>
+                            <span className="label-text ">Book Category</span>
                         </label>
                         <input type="text" name="type" required placeholder="Enter Category" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control max-md:w-full w-1/2">
                         <label className="label">
-                            <span className="label-text  text-black">Quantity</span>
+                            <span className="label-text ">Quantity</span>
                         </label>
                         <input type="text" name="price" required placeholder="Enter Available Quantity " className="input input-bordered w-full" />
                     </div>
@@ -80,13 +80,13 @@ const AddBooks = () => {
                 <div className="flex max-md:flex-col flex-row gap-5">
                     <div className="form-control max-md:w-full w-1/2">
                         <label className="label">
-                            <span className="label-text  text-black">Rating</span>
+                            <span className="label-text ">Rating</span>
                         </label>
                         <input type="text" name="rating" required placeholder="Rating" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control max-md:w-full w-1/2">
                         <label className="label">
-                            <span className="label-text  text-black">Book Image</span>
+                            <span className="label-text ">Book Image</span>
                         </label>
                         <input type="text" name="image" required placeholder="Enter image URL" className="input input-bordered w-full" />
                     </div>
@@ -96,7 +96,7 @@ const AddBooks = () => {
                 <div className="">
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text  text-black">Short Description</span>
+                            <span className="label-text ">Short Description</span>
                         </label>
                         <input type="text" name="details" required placeholder="Enter Short Description" className="input input-bordered w-full" />
                     </div>
@@ -105,7 +105,7 @@ const AddBooks = () => {
                 {/* From Submit button */}
                 <div className="">
                     <div className="form-control w-full my-5">
-                        <input type="submit" value="Add Book" placeholder="Enter Category" className="input text-white  bg-lime-600 font-bold w-full " />
+                        <input type="submit" value="Add Book" placeholder="Enter Category" className="input  bg-orange-100 font-bold w-full " />
                     </div>
 
                 </div>

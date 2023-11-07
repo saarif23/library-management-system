@@ -18,10 +18,11 @@ const Categories = () => {
 
     }, [])
     return (
-        <div className="py-10 bg-sky-50">
-        <div className="text-center font-bold max-w-6xl mx-auto">
-           <h3 className="text-4xl font-Roboto ">Popular category</h3>
-           <div className="grid max-md:grid-cols-2 max-lg:grid-cols-3 max-lg:gap-16 lg:grid-cols-6 max-lg:mx-5 my-10">
+        <div className="py-10">
+        <div className="text-center  max-w-6xl mx-auto">
+           <h3 className="text-4xl font-Roboto font-bold pb-3 ">Famous Book Categories</h3>
+           <p>A library can be called a store–house of knowledge. In dictionaries the word “library” has been defined as “a building or room containing a collection of books”. A library plays a very important role in promoting the progress of knowledge. Many people love reading but not all can afford to buy books which are priced very high.</p>
+           <div className="grid max-md:grid-cols-1 max-lg:grid-cols-3 max-lg:gap-16 gap-5 lg:grid-cols-4 max-lg:mx-5 my-10">
                {
                    category?.map(category => <Category key={category._id} category={category}></Category>)
                }

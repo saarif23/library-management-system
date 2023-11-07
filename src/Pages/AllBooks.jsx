@@ -6,7 +6,7 @@ const AllBooks = () => {
     const books = useLoaderData();
     
     return (
-        <div className="grid grid-cols-4  gap-5 ">
+        <div className="max-w-6xl mx-auto grid max-md:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-3  gap-10 my-10">
             {
                 books?.map(book => <SingleBooks key={book._id} book={book}></SingleBooks>)
             }

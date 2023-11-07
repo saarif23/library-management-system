@@ -6,34 +6,25 @@ const SingleBooks = ({ book }) => {
     const { _id, book_name, image, author_name, book_category, quantity, rating } = book;
     return (
         <div>
-            <div className="p-5 rounded-lg shadow-md bg-lime-50 max-lg:mx-5">
-                <img className="w-[300px] h-[400px]" src={image} alt="productImage" />
+            <div className="border border-sky-500 rounded-lg max-lg:mx-5">
+                <img className="w-full h-[400px] rounded-t-lg" src={image} alt="productImage" />
                 <hr />
-                <div className=" p-3">
+                <div className="p-3">
                     <div className='space-y-2'>
-                        <h3 className="text-xl font-bold"> {book_name}</h3>
-                        <div className="flex justify-between">
-                            <p>{book_category}</p>
-                            <p>Brand : {author_name}</p>
-                        </div>
-                        <p className="text-xl font-bold">{quantity}</p>
+                        <h3 className="text-2xl font-bold"> {book_name}</h3>
+                        <p>Category of Book : {book_category}</p>
+                        <p>Author Name : {author_name}</p>
+                        <p>Availabe Books : {quantity}</p>
 
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 pb-3">
                             <ReactStarsRating className="flex" value={rating} />
                             <p>{rating} (15 reviews)</p>
                         </div>
-
-                        <div className='flex justify-between '>
-
-                            <Link to={`/updateBooks/${_id}`}>
-                                <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border">  <FaPen></FaPen> <span>Update Product</span></div>
-                            </Link>
-
-                        </div>
-
                     </div>
-
                 </div>
+                <Link to={`/updateBooks/${_id}`}>
+                    <div className="flex justify-center w-full items-center gap-2 p-2 bg-sky-500 rounded-b-lg text-white font-semibold">  <FaPen></FaPen> <span>Update Product</span></div>
+                </Link>
             </div>
         </div>
     );

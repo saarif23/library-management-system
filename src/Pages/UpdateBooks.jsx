@@ -1,41 +1,46 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateBooks = () => {
     const books = useLoaderData();
     const { _id, book_name, image, author_name, book_category, quantity, rating, short_description } = books;
 
-    // const handleFromSubmit = event => {
-    //     event.preventDefault();
-    //     const from = event.target;
-    //     const name = from.name.value;
-    //     const brandName = from.brandName.value;
-    //     const type = from.type.value;
-    //     const price = from.price.value;
-    //     const rating = from.rating.value;
-    //     const image = from.image.value;
-    //     const details = from.details.value;
-    //     const newProduct = { name, brandName, type, price, rating, image, details };
+    const handleFromSubmit = event => {
+        event.preventDefault();
+        const from = event.target;
+        const book_name = from.book_name.value || "";
+        const author_name = from.author_name.value || "";
+        const book_category = from.book_category.value || "";
+        const quantity = from.quantity.value || "";
+        const rating = from.rating.value || "";
+        const image = from.image.value || "";
+        const short_description = from.details.value || "";
+        const updateBook = { book_name, author_name, book_category, quantity, rating, image, short_description };
+        console.log(updateBook)
 
-    //     // new product send to the server 
-    //     fetch(`https://brand-shop-server-75ovir89b-arif-hossains-projects.vercel.app/products/${_id}`, {
-    //         method: "PUT",
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(newProduct)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             Swal.fire({
-    //                 title: 'Success!',
-    //                 text: 'Product Updated Successfully',
-    //                 icon: 'success',
-    //                 confirmButtonText: 'Cool'
-    //             })
-    //             from.reset();
-    //         })
-    // }
+        // new product send to the server 
+        fetch(`http://localhost:5000/books/${_id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateBook)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount === 1) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    from.reset();
+                }
+
+            })
+    }
     return (
         <div>
             {/* <Helmet>
@@ -47,35 +52,35 @@ const UpdateBooks = () => {
                         <h3 className="text-3xl font-Roboto text-center text-[#374151] font-extrabold">Update Books</h3>
                         <p className="font-Playfair">Product creation is an excellent time for optimizing your product title, description, and image alt tags for search engines. See our Guide to SEO for advice and tips to get started with SEO in BigCommerce.</p>
                     </div>
-                    <form className="px-10 font-Playfair">
+                    <form onSubmit={handleFromSubmit} className="px-10 font-Playfair">
                         {/* From row with name and Brand name */}
                         <div className="flex max-md:flex-col flex-row gap-5">
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
-                                    <span className="label-text  text-black">Name</span>
+                                    <span className="label-text  text-black">Book Name</span>
                                 </label>
-                                <input type="text" name="name" defaultValue={book_name} className="input input-bordered w-full" />
+                                <input type="text" name="book_name" defaultValue={book_name} className="input input-bordered w-full" />
                             </div>
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
-                                    <span className="label-text  text-black">Brand Name</span>
+                                    <span className="label-text  text-black">Author Name</span>
                                 </label>
-                                <input type="text" name="brandName" defaultValue={author_name} className="input input-bordered w-full" />
+                                <input type="text" name="author_name" defaultValue={author_name} className="input input-bordered w-full" />
                             </div>
                         </div>
                         {/* From row with Type and Price */}
                         <div className="flex max-md:flex-col flex-row gap-5">
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
-                                    <span className="label-text  text-black">Product Type</span>
+                                    <span className="label-text  text-black">Category</span>
                                 </label>
-                                <input type="text" name="type" defaultValue={book_category} className="input input-bordered w-full" />
+                                <input type="text" name="book_category" defaultValue={book_category} className="input input-bordered w-full" />
                             </div>
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
-                                    <span className="label-text  text-black">Price</span>
+                                    <span className="label-text  text-black">quantity</span>
                                 </label>
-                                <input type="text" name="price" defaultValue={quantity} className="input input-bordered w-full" />
+                                <input type="text" name="quantity" defaultValue={quantity} className="input input-bordered w-full" />
                             </div>
                         </div>
                         {/* From row with Rating and Image */}
@@ -88,7 +93,7 @@ const UpdateBooks = () => {
                             </div>
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
-                                    <span className="label-text  text-black">Product Image</span>
+                                    <span className="label-text  text-black">Book Cover Image URL</span>
                                 </label>
                                 <input type="text" name="image" defaultValue={image} className="input input-bordered w-full" />
                             </div>

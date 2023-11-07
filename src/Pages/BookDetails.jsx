@@ -16,19 +16,20 @@ const BookDetails = () => {
     const { displayName, email } = user;
     const { _id } = useParams();
     const books = useLoaderData();
+
+    //
+
     const bookDetails = books.find(book => book._id === _id);
     const { book_name, image, author_name, book_category, quantity, rating } = bookDetails;
     const [totalQuantity, setTotalQuantity] = useState(quantity);
 
-    const addWithUser = { displayName, email, book_name, image, book_category, rating }
-    console.log(addWithUser)
-
+    const addWithUser = { displayName, email, book_name, author_name, image, book_category, rating }
 
     const handleAddToBorrow = () => {
 
         axios.post('/borrowBooks', addWithUser)
-            .then(res => {
-                console.log(res.data)
+            .then(() => {
+
                 Swal.fire({
                     title: "Success!",
                     text: 'Book Add to Borrowed Book',
@@ -41,6 +42,34 @@ const BookDetails = () => {
                 console.log(error)
             })
 
+        // axios.put(`/books/${_id}/quantity`, { totalQuantity })
+        //     .then(res => console.log(res))
+        //     .catch(error => {
+        //         console.log(error)
+        //     })
+        fetch(`http://localhost:5000/books/${_id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(totalQuantity)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount === 1) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+
+                }
+
+            })
+
+
     }
 
 
@@ -51,8 +80,14 @@ const BookDetails = () => {
 
         <dialog id="my_modal_1" className="modal">
             <div className="modal-box text-black text-center">
-                <h3 className="font-bold text-lg">Book Return Date </h3>
-                <p className="py-4">10-11-2023</p>
+                <div className="flex gap-5 items-center mb-5">
+                    <p className="text-xl font-semibold">Borrow Date :</p>
+                    <input type="date" name="borrowedDate" id="" />
+                </div>
+                <div className="flex gap-5 items-center ">
+                    <p className="text-xl font-semibold">Return Date :</p>
+                    <input type="date" name="returnDate" id="" />
+                </div>
                 <div className="modal-action flex justify-center">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
@@ -75,7 +110,7 @@ const BookDetails = () => {
                     <div className="flex justify-between items-center gap-10">
                         <p className="max-md:text-2xl font-semibold text-3xl">${totalQuantity} </p>
                         {
-                            totalQuantity <= 0 ? <div  className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer btn btn-sm btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
+                            totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer btn btn-sm btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
                         }
 
                     </div>
@@ -115,9 +150,9 @@ const BookDetails = () => {
                                 <p><span className="text-green-500 font-semibold">In Stock </span>Free Shipping & Free 30-day Returns</p>
                             </div>
                             <div className="flex gap-20">
-                               {
-                                totalQuantity <= 0 ?  <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer btn btn-md btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> :  <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
-                               }
+                                {
+                                    totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer btn btn-md btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
+                                }
 
                                 <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <MdFavorite></MdFavorite> <span>Read This</span></div>
                             </div>

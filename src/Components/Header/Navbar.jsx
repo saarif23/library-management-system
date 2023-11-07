@@ -40,7 +40,7 @@ const Navbar = () => {
             })
     }
     return (
-        <div className="shadow-xl font-Roboto bg-slate-300 text-black">
+        <div className="shadow-xl font-Roboto bg-indigo-300 text-black">
             <div className="navbar max-w-6xl mx-auto ">
                 <div className="navbar-start">
                     <div className="dropdown">
