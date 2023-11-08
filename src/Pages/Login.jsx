@@ -5,8 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Swal from "sweetalert2";
 
-import Footer from "../Components/Footer";
-import Navbar from "../Components/Header/Navbar";
+
 import useAxios from "../Hooks/useAxios";
 
 const Login = () => {
@@ -70,8 +69,8 @@ const Login = () => {
     return (
         <>
 
-            <Navbar></Navbar>
-            <div className="px-8 py-3 rounded-md m-10 border  max-md:w-full max-md:mx-5 w-1/3 mx-auto">
+
+            <div className="px-8 py-3 rounded-md m-10 border shadow-lg max-md:w-full max-md:mx-5 w-1/3 mx-auto">
                 <h3 className="text-3xl py-3 font-semibold">Sign In </h3>
                 <form onSubmit={handleLoginSubmit}>
                     <div className="form-control mb-2 ">
@@ -93,12 +92,12 @@ const Login = () => {
                     <p className="p-1 text-sm py-5 ">By continuing, you agree to <span className="cursor-pointer text-blue-800 hover:underline">Terms & Conditions of Use</span> and <span className="cursor-pointer text-blue-800 hover:underline">Privacy Notice</span>.</p>
 
                     <div className="form-control pb-3 ">
-                        <input type="submit" value="Sign In" className="cursor-pointer input input-sm bg-yellow-400" />
+                        <input type="submit" value="Sign In" className="cursor-pointer input input-sm bg-slate-400" />
                     </div>
                     <div className="form-control py-3 ">
                         <input onClick={handleGoogleSignIn} type="button" value="Sign In With Google" className="cursor-pointer input input-sm input-bordered" />
                     </div>
-                    <p className="text-center">New to ame ?
+                    <p className="text-center">New to here ?
                         <Link to="/register">
                             <span className="text-blue-800 underline ">  create an account</span>
                         </Link>
@@ -108,7 +107,6 @@ const Login = () => {
 
             </div>
 
-            <Footer></Footer>
         </>
     );
 };

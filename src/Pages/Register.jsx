@@ -2,8 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import Navbar from "../Components/Header/Navbar";
-import Footer from "../Components/Footer";
+
 import { useState } from "react";
 import useAuth from "../Hooks/useAuth";
 
@@ -76,7 +75,7 @@ const Register = () => {
     }
     return (
         <>
-            <Navbar></Navbar>
+          
             <div className="px-8 py-3 rounded-md m-10 border max-md:w-full w-1/3 mx-auto">
                 <h3 className="text-3xl py-3 font-medium">Create Account </h3>
                 <form onSubmit={handleRegisterSubmit}>
@@ -111,7 +110,7 @@ const Register = () => {
 
 
                     <div className="form-control py-5 ">
-                        <input type="submit" value="Sign Up" className="cursor-pointer input input-sm bg-yellow-400" />
+                        <input type="submit" value="Sign Up" className="cursor-pointer input input-sm bg-slate-400" />
                     </div>
 
 
@@ -122,15 +121,13 @@ const Register = () => {
                             <span className="text-blue-800 underline "> Sign In</span>
                         </Link>
                     </p>
-                    <p className="text-sm"> Buying for work?
-                        <span className="text-blue-800 underline cursor-pointer">Create a free business account</span>
+                    <p className="text-sm"> If you want a mamber of library?
+                        <span className="text-blue-800 underline cursor-pointer"> Fill up the from here </span>
                     </p>
                 </form>
 
             </div>
 
-
-            <Footer></Footer>
         </>
     );
 };

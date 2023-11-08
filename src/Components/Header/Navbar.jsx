@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
     const navigate = useNavigate()
     const { user, logout } = useAuth();
-   
+
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
     useEffect(() => {
@@ -28,7 +28,7 @@ const Navbar = () => {
         <li className="mr-5"><NavLink to="/allBooks">All Books</NavLink></li>
         <li className="mr-5"><NavLink to="/borrowedBooks">Borrowed Books</NavLink></li>
     </>
-      const handleLogout = () => {
+    const handleLogout = () => {
         logout()
             .then(() => {
                 Swal.fire({
@@ -51,7 +51,10 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <img className="w-24" src="https://i.ibb.co/c16k3jm/l-OGO-removebg-preview.png" alt="" />
+                    <div className="flex flex-col items-center">
+                        <img className="w-24 " src="https://i.ibb.co/2yNFBsr/logo-removebg-preview.png" alt="" />
+                        <p className="text-xl text-black font-bold max-md:hidden">Knowledge Cafe </p>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 lg:text-xl">
@@ -72,7 +75,7 @@ const Navbar = () => {
                                         <li> <button onClick={handleLogout}>Logout</button> </li>
                                     </ul>
                                 </div> </>
-                            : <Link to="/login"><button className="btn btn-sm">Sign In</button></Link>
+                            : <Link to="/login"><button className="btn btn-sm btn-outline">Sign In</button></Link>
                     }
                     <label className="swap swap-rotate">
 
