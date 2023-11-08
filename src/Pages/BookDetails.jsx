@@ -16,17 +16,20 @@ const BookDetails = () => {
     const axios = useAxios();
     const { displayName, email } = user;
     const { _id } = useParams();
+    console.log(_id);
     const books = useLoaderData();
     const [data, isPending, refetch] = useBorrowBooks();
 
     //
     const bookDetails = books.find(book => book._id === _id);
-    const { book_name, image, author_name, book_category, quantity, rating } = bookDetails;
+    const { book_name, short_description, image, author_name, book_category, quantity, rating } = bookDetails;
     const [totalQuantity, setTotalQuantity] = useState(quantity);
     const [borrowedDate, setBorrowedDate] = useState("");
     const [returnDate, setReturnDate] = useState("");
+    const restQuantity = totalQuantity - 1;
+    console.log(restQuantity);
 
-    const addWithUser = { displayName, email, book_name, author_name, image, book_category, rating, borrowedDate, returnDate }
+    const addWithUser = { displayName, _id, email, book_name, restQuantity, author_name, image, book_category, rating, borrowedDate, returnDate }
 
     if (isPending) {
         return <p>loding ...........</p>
@@ -121,7 +124,7 @@ const BookDetails = () => {
                 <div className=" p-5 lg:flex justify-between bg-gray-100 rounded-lg shadow-xl ">
                     <h3 className="max-md:text-2xl text-4xl flex-1  font-medium">{book_name} </h3>
                     <div className="flex justify-between items-center gap-10">
-                        <p className="max-md:text-2xl font-semibold text-3xl">{totalQuantity} </p>
+
                         {
                             totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer btn btn-sm btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
                         }
@@ -133,14 +136,14 @@ const BookDetails = () => {
                 <div className="flex py-10 max-lg:flex-col lg:flex-row items-center gap-5  ">
 
                     <div className="flex-1 mx-5">
-                        <img src={image} alt="" />
+                        <img className="w-full" src={image} alt="" />
                         <p className="pt-10">{''}</p>
                     </div>
                     <div className="flex-1">
                         <div className=" mx-5 space-y-5 ">
-                            <h3 className="text-4xl font-Roboto  font-medium">{book_name} </h3>
-                            <p> <span className="font-bold">Brand : </span>{author_name}</p>
-                            <p> <span className="font-bold">Type : </span>{book_category}</p>
+                            <h3 className="text-5xl font-Roboto  font-medium">{book_name} </h3>
+                            <p> <span className="font-bold">Author Name : </span>{author_name}</p>
+                            <p> <span className="font-bold">Book Type : </span>{book_category}</p>
                             <div className="flex gap-5">
                                 <ReactStarsRating className="flex" value={rating} />
                                 <div className="flex gap-3">
@@ -158,16 +161,17 @@ const BookDetails = () => {
                                     </div>
                                 </div>
                             </div>
+                            <p>{short_description}</p>
                             <div className="flex items-center gap-8 py-5">
                                 <span className="text-4xl"><BiFastForward></BiFastForward></span>
-                                <p><span className="text-green-500 font-semibold">In Stock </span>Free Shipping & Free 30-day Returns</p>
+                                <p><span className="text-green-500 font-semibold">Available </span>The Book is available For you</p>
                             </div>
                             <div className="flex gap-20">
                                 {
-                                    totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer btn btn-md btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
+                                    totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 rounded-md border cursor-pointer btn btn-md btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 rounded-md border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
                                 }
 
-                                <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <MdFavorite></MdFavorite> <span>Read This</span></div>
+                                <Link to={`/readBook/${_id}`}> <div className="flex justify-center items-center gap-2 py-2 px-5 rounded-md border cursor-pointer"> <MdFavorite></MdFavorite> <span>Read This Book</span></div></Link>
                             </div>
                             <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <SiIconfinder></SiIconfinder> <span>FIND A RETAILER</span></div>
 
