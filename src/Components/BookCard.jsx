@@ -85,7 +85,7 @@ const BookCard = () => {
         {
             booksCategory.length > 0
                 ?
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto py-10">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto py-10">
                     {
                         booksCategory.map(book => <Book key={book._id} book={book}></Book>)
                     }

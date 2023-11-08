@@ -6,8 +6,8 @@ const Book = ({ book }) => {
 
     const { _id, book_name, image, author_name, book_category, quantity, rating } = book;
     return (
-        <div className=" rounded-lg shadow-md h-[320px]  border max-lg:mx-5 flex gap-3" >
-            <img className="w-2/5 rounded-md " src={image} alt="bookImage" />
+        <div className=" rounded-lg shadow-md md:h-[320px]  border max-lg:mx-5 flex max-md:flex-col md:flex-row gap-3" >
+            <img className=" max-md:w--4/5 md:w-2/5 rounded-md " src={image} alt="bookImage" />
 
             <div className="p-3 flex-1 flex flex-col justify-between">
                 <div>

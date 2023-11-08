@@ -71,14 +71,14 @@ const SingleBorrowBook = ({ book, refetch, books }) => {
     return (
         <>
 
-            <div className="max-w-4xl mx-auto ">
+            <div className="max-w-4xl mx-auto  ">
 
-                <div className='flex max-md:flex-col items-center flex-row max-md:justify-center 
-       justify-between max-w-6xl  border rounded-lg max-md:gap-5  my-5 h-[450px]'>
+                <div className='flex max-md:flex-col lg:flex-row items-center flex-row max-md:justify-center 
+       justify-between max-w-6xl  border rounded-lg max-md:gap-5 md:h-[450px] '>
                     {/* <Helmet>
                 <title>MAOXAL | My Cart</title>
             </Helmet> */}
-                    <img className=' w-[350px] h-full' src={image} alt="" />
+                    <img className='w-full md:w-[350px] h-full' src={image} alt="" />
 
                     <div className="">
                         <div className='text-left max-md:text-center max-md:w-full space-y-2 p-10'>

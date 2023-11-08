@@ -6,7 +6,7 @@ const SingleBooks = ({ book }) => {
     const { _id, book_name, image, author_name, book_category, quantity, rating } = book;
     return (
         <div>
-            <div className="border border-sky-500 rounded-lg max-lg:mx-5">
+            <div className="border border-sky-500 rounded-lg max-lg:mx-5  flex flex-col justify-between">
                 <img className="w-full h-[400px] rounded-t-lg" src={image} alt="productImage" />
                 <hr />
                 <div className="p-3">
@@ -23,7 +23,7 @@ const SingleBooks = ({ book }) => {
                     </div>
                 </div>
                 <Link to={`/updateBooks/${_id}`}>
-                    <div className="flex justify-center w-full items-center gap-2 p-2 bg-sky-500 rounded-b-lg text-white font-semibold">  <FaPen></FaPen> <span>Update Product</span></div>
+                    <div className="flex justify-center w-full items-center gap-2 p-2 bg-sky-500 rounded-b-lg text-white font-semibold">  <FaPen></FaPen> <span>Update Book</span></div>
                 </Link>
             </div>
         </div>

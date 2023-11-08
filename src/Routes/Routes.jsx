@@ -11,12 +11,14 @@ import BookDetails from "../Pages/BookDetails";
 import UpdateBooks from "../Pages/UpdateBooks";
 import PrivateRoute from "./PrivateRoute";
 import ReadBooks from "../Pages/ReadBooks";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 const Routes = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,

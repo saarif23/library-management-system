@@ -1,9 +1,24 @@
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxios from "../Hooks/useAxios";
 
 const UpdateBooks = () => {
     const books = useLoaderData();
+    const [category, setCategory] = useState();
+    // const { data: categories } = category;
     const { _id, book_name, image, author_name, book_category, quantity, rating, short_description } = books;
+    const axios = useAxios();
+    useEffect(() => {
+        axios.get('/category')
+            .then(data => {
+                setCategory(data.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    }, [])
 
     const handleFromSubmit = event => {
         event.preventDefault();
@@ -17,6 +32,9 @@ const UpdateBooks = () => {
         const short_description = from.details.value || "";
         const updateBook = { book_name, author_name, book_category, quantity, rating, image, short_description };
         console.log(updateBook)
+
+
+
 
         // new product send to the server 
         fetch(`http://localhost:5000/books/${_id}`, {
@@ -53,7 +71,7 @@ const UpdateBooks = () => {
                         <p className="font-Playfair">Product creation is an excellent time for optimizing your product title, description, and image alt tags for search engines. See our Guide to SEO for advice and tips to get started with SEO in BigCommerce.</p>
                     </div>
                     <form onSubmit={handleFromSubmit} className="px-10 font-Playfair">
-                        {/* From row with name and Brand name */}
+                        {/* From row with name and author name */}
                         <div className="flex max-md:flex-col flex-row gap-5">
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
@@ -68,14 +86,24 @@ const UpdateBooks = () => {
                                 <input type="text" name="author_name" defaultValue={author_name} className="input input-bordered w-full" />
                             </div>
                         </div>
-                        {/* From row with Type and Price */}
+                        {/* From row with Type and quantity */}
                         <div className="flex max-md:flex-col flex-row gap-5">
                             <div className="form-control w-full lg:w-1/2">
+
                                 <label className="label">
                                     <span className="label-text  text-black">Category</span>
                                 </label>
+
+                                <select name="book_category" id="">
+                                    {books.map(cat => <option>{cat.book_category}</option>)}
+                                </select>
+
                                 <input type="text" name="book_category" defaultValue={book_category} className="input input-bordered w-full" />
                             </div>
+
+
+
+
                             <div className="form-control w-full lg:w-1/2">
                                 <label className="label">
                                     <span className="label-text  text-black">quantity</span>

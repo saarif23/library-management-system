@@ -3,7 +3,7 @@
 const Faq = () => {
     return (
         <div className="max-w-6xl mx-auto">
-            <div className="flex gap-10  my-10">
+            <div className="flex max-lg:flex-col lg:flex-row gap-10  my-10 max-md:px-5">
                 <div className="relative flex-1">
                     <img src="https://i.ibb.co/HYWzJDQ/faq.png" alt="iamge" />
                     <div className="p-10 bg-green-900 text-white absolute bottom-0 right-0 text-2xl ml-12 rounded-md">
@@ -13,7 +13,7 @@ const Faq = () => {
 
 
                 <div className="flex-1">
-                    <h3 className="text-5xl font-extrabold py-5">Frequently Asked Questions</h3>
+                    <h3 className="text-5xl font-extrabold py-5 max-md:text-center">Frequently Asked Questions</h3>
                     <p>Architect client-centered total linkage for intuitive benefits. Dynamically restore convergence before real-time restore.</p>
                     <div className="collapse collapse-plus rounded border mt-5">
                         <input type="radio" name="my-accordion-3" />

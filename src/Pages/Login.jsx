@@ -7,10 +7,12 @@ import Swal from "sweetalert2";
 
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Header/Navbar";
+import useAxios from "../Hooks/useAxios";
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
+    const axios = useAxios();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -41,12 +43,20 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user)
-                Swal.fire({
-                    title: "Success!",
-                    text: 'Sign In Successfully',
-                    icon: "success",
-                });
-                navigate(location?.state ? location.state : "/")
+
+                const user = { email }
+                axios.post('/jwt', user)
+                    .then(res => {
+                        if (res.data.success) {
+                            navigate(location?.state ? location.state : "/")
+                        }
+                        Swal.fire({
+                            title: "Success!",
+                            text: 'Sign In Successfully',
+                            icon: "success",
+                        });
+                    })
+                    .catch(error => console.log(error))
             })
             .catch(error => {
                 console.error(error)
@@ -59,7 +69,7 @@ const Login = () => {
     }
     return (
         <>
-            
+
             <Navbar></Navbar>
             <div className="px-8 py-3 rounded-md m-10 border  max-md:w-full max-md:mx-5 w-1/3 mx-auto">
                 <h3 className="text-3xl py-3 font-semibold">Sign In </h3>
