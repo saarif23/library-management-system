@@ -71,7 +71,7 @@ const SingleBorrowBook = ({ book, refetch, books }) => {
             <div className="max-w-4xl mx-auto  ">
 
                 <div className='flex max-md:flex-col lg:flex-row items-center flex-row max-md:justify-center 
-       justify-between max-w-6xl  border rounded-lg max-md:gap-5 md:h-[450px] '>
+       justify-between max-w-6xl  border rounded-lg max-md:gap-5 md:h-[450px] m-10'>
                     {/* <Helmet>
                 <title>MAOXAL | My Cart</title>
             </Helmet> */}

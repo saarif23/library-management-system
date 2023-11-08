@@ -22,13 +22,10 @@ const Banner = () => {
                 <div id="slide2" className="carousel-item relative w-full">
                     <img src="https://i.ibb.co/Nj3Q8fW/book-library-with-open-textbook.jpg" className="w-full rounded-xl" />
                     <div className="absolute flex items-center h-full text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                        <div className='pl-24  space-y-5 leading-relaxed'>
-                            <h3 className="w-2/5 text-5xl font-extrabold leading-tight">Affordable Price For Car Servicing</h3>
-                            <p className='w-2/3'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                            <div className='flex gap-5'>
-                                <button className='btn  btn-md bg-[#FF3811] text-white'>Discover More</button>
-                                <button className='btn btn-outline  btn-md  text-white'>Latest Projects</button>
-                            </div>
+                    <div className='md:pl-24  md:space-y-5 leading-relaxed'>
+                            <h3 className="md:w-3/5 md:text-5xl max-md:text-2xl font-extrabold leading-tight max-md:text-center max-md:px-10"><span className="text-orange-400">Reading is a valuable</span>  skill for acquiring <span className="text-orange-400">knowledge</span></h3>
+                            <p className='md:w-2/3 max-md:text-center max-md:text-sm'> Libraries are valuable sources of reliable information. They offer reference materials, research assistance, and access to academic journals, helping individuals with academic and professional research.</p>
+                            <button className='py-2 px-2 mad-md:px-5 rounded-md font-bold bg-orange-600 text-white max-md:text-sm max-md:px-10 max-md:hidden'>Knowledge is Everything</button>
                         </div>
                     </div>
                     <div className="absolute flex justify-end gap-8 transform -translate-y-1/2 left-5 right-5 bottom-0">
@@ -39,13 +36,10 @@ const Banner = () => {
                 <div id="slide3" className="carousel-item relative w-full">
                     <img src="https://i.ibb.co/4j4cZk3/26989.jpg" className="w-full rounded-xl" />
                     <div className="absolute flex items-center h-full text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                        <div className='pl-24  space-y-5 leading-relaxed'>
-                            <h3 className="w-2/5 text-5xl font-extrabold leading-tight">Affordable Price For Car Servicing</h3>
-                            <p className='w-2/3'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                            <div className='flex gap-5'>
-                                <button className='btn  btn-md bg-[#FF3811] text-white'>Discover More</button>
-                                <button className='btn btn-outline  btn-md  text-white'>Latest Projects</button>
-                            </div>
+                    <div className='md:pl-24  md:space-y-5 leading-relaxed'>
+                            <h3 className="md:w-3/5 md:text-5xl max-md:text-2xl font-extrabold leading-tight max-md:text-center max-md:px-10"><span className="text-orange-400">Reading is a valuable</span>  skill for acquiring <span className="text-orange-400">knowledge</span></h3>
+                            <p className='md:w-2/3 max-md:text-center max-md:text-sm'> Libraries are valuable sources of reliable information. They offer reference materials, research assistance, and access to academic journals, helping individuals with academic and professional research.</p>
+                            <button className='py-2 px-2 mad-md:px-5 rounded-md font-bold bg-orange-600 text-white max-md:text-sm max-md:px-10 max-md:hidden'>Knowledge is Everything</button>
                         </div>
                     </div>
                     <div className="absolute flex justify-end gap-8 transform -translate-y-1/2 left-5 right-5 bottom-0">
@@ -56,13 +50,10 @@ const Banner = () => {
                 <div id="slide4" className="carousel-item relative w-full">
                     <img src="https://i.ibb.co/6sLc9gF/29660.jpg" className="w-full rounded-xl" />
                     <div className="absolute flex items-center h-full text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                        <div className='pl-24  space-y-5 leading-relaxed'>
-                            <h3 className="w-2/5 text-5xl font-extrabold leading-tight">Affordable Price For Car Servicing</h3>
-                            <p className='w-2/3'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                            <div className='flex gap-5'>
-                                <button className='btn  btn-md bg-[#FF3811] text-white'>Discover More</button>
-                                <button className='btn btn-outline  btn-md  text-white'>Latest Projects</button>
-                            </div>
+                    <div className='md:pl-24  md:space-y-5 leading-relaxed'>
+                            <h3 className="md:w-3/5 md:text-5xl max-md:text-2xl font-extrabold leading-tight max-md:text-center max-md:px-10"><span className="text-orange-400">Reading is a valuable</span>  skill for acquiring <span className="text-orange-400">knowledge</span></h3>
+                            <p className='md:w-2/3 max-md:text-center max-md:text-sm'> Libraries are valuable sources of reliable information. They offer reference materials, research assistance, and access to academic journals, helping individuals with academic and professional research.</p>
+                            <button className='py-2 px-2 mad-md:px-5 rounded-md font-bold bg-orange-600 text-white max-md:text-sm max-md:px-10 max-md:hidden'>Knowledge is Everything</button>
                         </div>
                     </div>
                     <div className="absolute flex justify-end gap-8 transform -translate-y-1/2 left-5 right-5 bottom-0">
