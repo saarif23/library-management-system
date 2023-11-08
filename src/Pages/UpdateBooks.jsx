@@ -94,11 +94,15 @@ const UpdateBooks = () => {
                                     <span className="label-text  text-black">Category</span>
                                 </label>
 
-                                <select name="book_category" id="">
-                                    {books.map(cat => <option>{cat.book_category}</option>)}
+                                <select name="book_category" className="input input-bordered" required>
+                                    <option value={book_category}>{book_category}</option>
+                                    <option value="Novel">Novel</option>
+                                    <option value="Thriller">Thriller</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Business">Business</option>
+
                                 </select>
 
-                                <input type="text" name="book_category" defaultValue={book_category} className="input input-bordered w-full" />
                             </div>
 
 

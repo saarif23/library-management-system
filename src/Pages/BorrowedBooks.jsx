@@ -7,6 +7,7 @@ import useBorrowBooks from "../Hooks/useBorrowBooks";
 const BorrowedBooks = () => {
 
     const [data, isPending, refetch] = useBorrowBooks();
+    console.log(data);
     const books = useLoaderData();
     const { _id } = useParams();
 

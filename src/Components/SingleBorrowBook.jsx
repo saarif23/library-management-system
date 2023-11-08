@@ -9,8 +9,7 @@ const SingleBorrowBook = ({ book, refetch, books }) => {
     console.log(books);
     const axios = useAxios();
     const { _id, book_name, image, author_name, book_category, restQuantity, rating, returnDate, borrowedDate } = book;
-    const borrowedBook = books.find(book => book.book_name === book_name);
-    console.log(borrowedBook);
+
     const [totalQuantity, setTotalQuantity] = useState(restQuantity);
 
 
@@ -35,27 +34,25 @@ const SingleBorrowBook = ({ book, refetch, books }) => {
                                 'Your Book has been Returned.',
                                 'success'
                             )
+                            refetch();
                             setTotalQuantity(totalQuantity + 1)
+                            // update quantity
+                            axios.put(`/books/${_id}`, { totalQuantity: totalQuantity + 1 })
+                                .then(res => {
+                                    console.log(res.data);
+                                    if (res.data.modifiedCount === 1) {
+                                        Swal.fire({
+                                            title: 'Success!',
+                                            text: 'Product Updated Successfully',
+                                            icon: 'success',
+                                            confirmButtonText: 'Cool'
+                                        })
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                })
 
-                            if (borrowedBook) {
-                                axios.put(`/books/${borrowedBook.book_id}`, { totalQuantity: totalQuantity + 1 }) //`/books/${borrowedBook.book_id}`
-                                    .then(res => {
-                                        console.log(res.data);
-                                        if (res.data.modifiedCount === 1) {
-                                            Swal.fire({
-                                                title: 'Success!',
-                                                text: 'Book Quantity Updated Successfully',
-                                                icon: 'success',
-                                                confirmButtonText: 'Cool'
-                                            })
-                                            refetch();
-                                        }
-                                    })
-                                    .catch(error => {
-                                        console.log(error)
-                                    })
-
-                            }
 
                         }
                     })
