@@ -22,7 +22,9 @@ const BookDetails = () => {
 
     //
     const bookDetails = books.find(book => book._id === _id);
-    const { book_name, short_description, image, author_name, book_category, quantity, rating } = bookDetails;
+
+    const { book_name, short_description, image, author_name, book_category, quantity, rating, book_details } = bookDetails;
+    const { publisher, published_date, book_content1, book_content2, book_content3 } = book_details;
     const [totalQuantity, setTotalQuantity] = useState(quantity);
     const [borrowedDate, setBorrowedDate] = useState("");
     const [returnDate, setReturnDate] = useState("");
@@ -86,15 +88,28 @@ const BookDetails = () => {
         <dialog id="my_modal_1" className="modal">
             <div className="modal-box text-black text-center">
                 <div className="flex gap-5 items-center mb-5">
-                    <p className="text-xl font-semibold">Borrow Date :</p>
-                    <input
+
+                    <div className="form-control w-full lg:w-1/2">
+                        <label className="label">
+                            <span className="label-text  text-black">Borrow Date </span>
+                        </label>
+                        <input onChange={(e) => setBorrowedDate(e.target.value)} type="date" name="borrowedDate" required className="input input-bordered w-full" />
+                    </div>
+                    <div className="form-control w-full lg:w-1/2">
+                        <label className="label">
+                            <span className="label-text  text-black">Return Date </span>
+                        </label>
+                        <input onChange={(e) => setReturnDate(e.target.value)} type="date" name="returnDate" required className="input input-bordered w-full" />
+                    </div>
+                    {/* <p className="text-xl font-semibold">Borrow Date :</p>
+                    <input className="w-full input-bordered"
                         type="date"
                         name="borrowedDate"
                         value={borrowedDate}
                         onChange={(e) => setBorrowedDate(e.target.value)}
-                    />
+                    /> */}
                 </div>
-                <div className="flex gap-5 items-center ">
+                {/* <div className="flex gap-5 items-center ">
                     <p className="text-xl font-semibold">Return Date :</p>
                     <input
                         type="date"
@@ -103,7 +118,7 @@ const BookDetails = () => {
                         onChange={(e) => setReturnDate(e.target.value)}
                     />
 
-                </div>
+                </div> */}
                 <div className="modal-action flex justify-center">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
@@ -144,6 +159,8 @@ const BookDetails = () => {
                             <h3 className="text-5xl font-Roboto  font-medium">{book_name} </h3>
                             <p> <span className="font-bold">Author Name : </span>{author_name}</p>
                             <p> <span className="font-bold">Book Type : </span>{book_category}</p>
+                            <p> <span className="font-bold">Published Date : </span>{published_date}</p>
+                            <p> <span className="font-bold">Published : </span>{publisher}</p>
                             <div className="flex gap-5">
                                 <ReactStarsRating className="flex" value={rating} />
                                 <div className="flex gap-3">
@@ -180,15 +197,12 @@ const BookDetails = () => {
                     </div>
 
                 </div>
-                <h3 className="text-3xl font-medium py-5">Features and Specs</h3>
-                <hr />
-                <ul className="menu menu-vertical lg:menu-horizontal">
-                    <li><Link >Performance</Link></li>
-                    <li><Link>Design</Link></li>
-                    <li><Link>Details</Link></li>
-                    <li><Link>All Specs</Link></li>
+                <div className=" space-y-5">
+                    <p>{book_content1}</p>
+                    <p>{book_content2}</p>
+                    <p>{book_content3}</p>
 
-                </ul>
+                </div>
             </div>
 
         </>

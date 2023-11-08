@@ -87,7 +87,15 @@ const AddBooks = () => {
                             <label className="label">
                                 <span className="label-text ">Book Category</span>
                             </label>
-                            <input type="text" name="book_category" required placeholder="Enter Category" className="input input-bordered w-full" />
+                          
+                            <select name="book_category" className="input input-bordered" required>
+                                <option value="Select A Category"></option>
+                                <option value="Novel">Novel</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Business">Business</option>
+
+                            </select>
                         </div>
                         <div className="form-control max-md:w-full w-1/2">
                             <label className="label">
