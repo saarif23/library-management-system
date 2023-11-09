@@ -3,7 +3,7 @@ const Footer = () => {
       <div className="bg-indigo-300">
           <footer className="grid max-w-6xl mx-auto max-md:grid-cols-1 max-lg:grid-cols-3 max-lg:gap-10 lg:grid-cols-4 gap-5 py-10 px-20 text-black">
             <div className="max-lg:col-span-3 max-md:col-span-1">
-                <img className="w-36 max-lg:mx-auto" src="https://i.ibb.co/2yNFBsr/logo-removebg-preview.png" alt="sunshine Wedding" />
+                <img className="w-36 max-lg:mx-auto" src="https://i.ibb.co/h84CxzQ/Capture-removebg-preview.png" alt="sunshine Wedding" />
                 <p className="max-lg:text-center">Knowledge Cafe <br />Providing free  knowledge since 2010</p>
             </div>
             <div className="max-md:text-center">

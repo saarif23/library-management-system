@@ -2,11 +2,14 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../Config/firebase.config";
 import PropTypes from 'prop-types'
+import axios from "axios";
+
 
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+
 
     //sign  Up
     const signUp = (email, password) => {
@@ -43,8 +46,20 @@ const AuthProvider = ({ children }) => {
     //user observation
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            const userEmail = currentUser?.email || user?.email
             setUser(currentUser)
             setLoading(false)
+            if (currentUser) {
+                axios.post('https://library-management-system-server-ivory.vercel.app/jwt', userEmail, { withCredentials: true })
+                    .then(res => {
+                        console.log("token in useeffect ", res.data)
+                    })
+            } else {
+                axios.post('https://library-management-system-server-ivory.vercel.app/logout', userEmail, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data)
+                    })
+            }
         })
         return () => {
             unsubscribe;
@@ -68,7 +83,7 @@ const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
-AuthProvider.propTypes={
+AuthProvider.propTypes = {
     children: PropTypes.node
 }
 export default AuthProvider;

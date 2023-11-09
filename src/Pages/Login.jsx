@@ -4,14 +4,16 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Swal from "sweetalert2";
+import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
-import useAxios from "../Hooks/useAxios";
+
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
-    const axios = useAxios();
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -38,13 +40,20 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
         signIn(email, password)
             .then(result => {
                 console.log(result.user)
+                // navigate(location?.state ? location.state : "/")
+                // Swal.fire({
+                //     title: "Success!",
+                //     text: 'Sign In Successfully',
+                //     icon: "success",
+                // });
 
                 const user = { email }
-                axios.post('/jwt', user)
+                console.log("user in login", user);
+                axios.post('https://library-management-system-server-ivory.vercel.app/jwt', user)
                     .then(res => {
                         if (res.data.success) {
                             navigate(location?.state ? location.state : "/")
@@ -56,6 +65,9 @@ const Login = () => {
                         });
                     })
                     .catch(error => console.log(error))
+
+
+
             })
             .catch(error => {
                 console.error(error)
@@ -68,7 +80,9 @@ const Login = () => {
     }
     return (
         <>
-
+            <Helmet>
+                <title>Knowledge Cafe | Login</title>
+            </Helmet>
 
             <div className="px-8 py-3 rounded-md m-10 border shadow-lg max-md:w-full max-md:mx-5 w-1/3 mx-auto">
                 <h3 className="text-3xl py-3 font-semibold">Sign In </h3>

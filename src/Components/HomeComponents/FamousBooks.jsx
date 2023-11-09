@@ -10,7 +10,7 @@ const FamousBooks = () => {
     const axios = useAxios()
     const [books, setBooks] = useState([]);
     const filterBooks = books.filter(book => book.rating >= 4.90)
-    console.log(filterBooks)
+
     useEffect(() => {
         axios.get('/books')
             .then(res => {
@@ -27,7 +27,7 @@ const FamousBooks = () => {
                 {
                     (showAll ? filterBooks.slice(0, 3) : filterBooks).map(book => <SingleBook key={book._id}
                         book={book}
-                        
+
                     ></SingleBook>)
                 }
             </div>

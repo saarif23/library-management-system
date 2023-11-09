@@ -8,9 +8,9 @@ const Category = ({ category }) => {
             <Link to={`/category/${book_category}`}>
                 <h3 className=" text-4xl font-bold py-2">{book_category}</h3>
                 <img className=" mx-auto  px-5" src={category_image} alt="" />
-                <div  className=" flex items-center gap-3 justify-center btn bg-orange-100" >
-                <span>Show Books</span>
-                <FaArrowRightLong></FaArrowRightLong>
+                <div className=" flex items-center gap-3 justify-center btn bg-orange-100" >
+                    <span>Show Books</span>
+                    <FaArrowRightLong></FaArrowRightLong>
                 </div>
             </Link>
         </div>

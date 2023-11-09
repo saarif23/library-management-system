@@ -31,27 +31,27 @@ const Routes = createBrowserRouter([
             {
                 path: '/updateBooks/:id',
                 element: <PrivateRoute><UpdateBooks></UpdateBooks></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+                loader: ({ params }) => fetch(`https://library-management-system-server-ivory.vercel.app/books/${params.id}`, { credentials: "include" })
             },
             {
                 path: '/allBooks',
                 element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/books')
+                loader: () => fetch('https://library-management-system-server-ivory.vercel.app/books', { credentials: "include" })
             },
             {
                 path: '/borrowedBooks',
                 element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/books'),
+                loader: () => fetch('https://library-management-system-server-ivory.vercel.app/books', { credentials: "include" }),
             },
             {
                 path: '/category/:book_category',
                 element: <BookCard></BookCard>,
-                loader: () => fetch('http://localhost:5000/books')
+                loader: () => fetch('https://library-management-system-server-ivory.vercel.app/books', { credentials: "include" })
             },
             {
                 path: '/book/:_id',
                 element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/books'),
+                loader: () => fetch('https://library-management-system-server-ivory.vercel.app/books', { credentials: "include" }),
 
             },
 
@@ -68,7 +68,7 @@ const Routes = createBrowserRouter([
     {
         path: "/readBook/:_id",
         element: <ReadBooks></ReadBooks>,
-        loader: ({ params }) => fetch(`http://localhost:5000/books/${params._id}`)
+        loader: ({ params }) => fetch(`https://library-management-system-server-ivory.vercel.app/books/${params._id}`, { credentials: "include" })
     }
 
 ])

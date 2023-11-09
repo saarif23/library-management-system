@@ -6,14 +6,14 @@ import { MdFavorite } from 'react-icons/md';
 import { SiIconfinder } from 'react-icons/si';
 import ReactStarsRating from 'react-awesome-stars-rating';
 
-// import { Helmet } from "react-helmet-async";
 import useAuth from "../Hooks/useAuth";
-import useAxios from "../Hooks/useAxios";
 import { useState } from "react";
 import useBorrowBooks from "../Hooks/useBorrowBooks";
+import axios from "axios";
+import { Helmet } from "react-helmet";
 const BookDetails = () => {
     const { user } = useAuth();
-    const axios = useAxios();
+
     const { displayName, email } = user;
     const { _id } = useParams();
     console.log(_id);
@@ -31,7 +31,7 @@ const BookDetails = () => {
     const restQuantity = totalQuantity - 1;
     console.log(restQuantity);
 
-    const addWithUser = { displayName, _id, email, book_name, restQuantity, author_name, image, book_category, rating, borrowedDate, returnDate }
+    const addWithUser = { displayName, _id, email, book_name, short_description, restQuantity, author_name, image, book_category, rating, borrowedDate, returnDate }
 
     if (isPending) {
         return <p>loding ...........</p>
@@ -47,7 +47,7 @@ const BookDetails = () => {
                 icon: "error",
             });
         }
-        axios.post('/borrowBooks', addWithUser)
+        axios.post('https://library-management-system-server-ivory.vercel.app/borrowBooks', addWithUser, { withCredentials: true })
             .then((res) => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -64,7 +64,7 @@ const BookDetails = () => {
                 console.log(error)
             })
 
-        axios.put(`/books/${_id}`, { totalQuantity: totalQuantity - 1 })
+        axios.put(`https://library-management-system-server-ivory.vercel.app/books/${_id}`, { totalQuantity: totalQuantity - 1 }, { withCredentials: true })
             .then(res => {
                 if (res.data.modifiedCount === 1) {
                     Swal.fire({
@@ -133,9 +133,9 @@ const BookDetails = () => {
     return (
         <>
             <div className="max-w-6xl mx-auto my-10">
-                {/* <Helmet>
-                <title>MAOXAL | Product Details</title>
-            </Helmet> */}
+                <Helmet>
+                <title>Knowledge Cafe | Book Details</title>
+            </Helmet>
                 <div className=" p-5 lg:flex justify-between bg-gray-100 rounded-lg shadow-xl ">
                     <h3 className="max-md:text-2xl text-4xl flex-1  font-medium">{book_name} </h3>
                     <div className="flex justify-between items-center gap-10">

@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import SingleBorrowBook from "../Components/SingleBorrowBook";
 
 import useBorrowBooks from "../Hooks/useBorrowBooks";
+import { Helmet } from "react-helmet";
 
 const BorrowedBooks = () => {
 
@@ -21,6 +22,9 @@ const BorrowedBooks = () => {
 
     return (
         <div className="min-h-screen my-10">
+              <Helmet>
+                <title>Knowledge Cafe | Borrow Books</title>
+            </Helmet>
             {
                 data.map(book => <SingleBorrowBook
                     key={book._id}

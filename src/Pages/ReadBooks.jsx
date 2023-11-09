@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -10,9 +11,12 @@ const ReadBooks = () => {
 
     return (
         <div className="bg-sky-50">
-            <div className="max-w-6xl mx-auto  py-16">
+            <Helmet>
+                <title>Knowledge Cafe | Read Book</title>
+            </Helmet>
+            <div className="max-w-6xl mx-auto  py-16 max-md:mx-5">
                 <h3 className="text-5xl text-center py-7 font-bold">{book_name}</h3>
-                <div className="flex flex-row-reverse gap-8">
+                <div className="flex flex-col md:flex-row-reverse gap-8">
                     <div className="flex-[2] space-y-4">
 
                         <div className="space-y-3 pt-5">

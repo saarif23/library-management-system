@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import { useState } from "react";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -75,7 +76,9 @@ const Register = () => {
     }
     return (
         <>
-          
+            <Helmet>
+                <title>Knowledge Cafe | Register</title>
+            </Helmet>
             <div className="px-8 py-3 rounded-md m-10 border max-md:w-full w-1/3 mx-auto">
                 <h3 className="text-3xl py-3 font-medium">Create Account </h3>
                 <form onSubmit={handleRegisterSubmit}>
