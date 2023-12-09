@@ -1,12 +1,15 @@
-##  Knowledge Cafe
+#  Knowledge Cafe
 
-# Client Site Live link 
+## Client Site Live link 
 https://iridescent-croissant-76b1d3.netlify.app/
 
 
-# Server Site live link 
+## Server Site live link 
  https://library-management-system-server-ivory.vercel.app/
 
+
+## Server Side Code Link
+https://github.com/saarif23/library-management-system-server
 
 
 #  project features
@@ -26,3 +29,33 @@ https://iridescent-croissant-76b1d3.netlify.app/
 - If user logged in he/she see his/her borrow books  in borrow books  page.
 - added 404 error page 
 - server side deploy in vercel 
+
+
+
+  # Used packages and technology
+
+  ## Used packages
+  - Tailwind CSS
+  - Axios
+  - Tanstack query
+  - Firebase 
+  - React-router-dom
+  - React Icons
+  - Prop-types
+  - React-helmet-async
+  - Sweetalert2
+
+
+
+  # Used Technology
+  ## Front-end
+  - HTML
+  - Tailwind CSS
+  - Daisyui
+  - Java Script
+  - React Js
+
+  ## Back-end
+  - Node Js
+  - Express Js
+  - Mongodb
