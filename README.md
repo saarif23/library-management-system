@@ -45,6 +45,7 @@ https://github.com/saarif23/library-management-system-server
   - React-helmet-async
   - React-awesome-stars-rating
   - Sweetalert2
+  - JWT TOKEN
 
 
 
@@ -59,4 +60,5 @@ https://github.com/saarif23/library-management-system-server
   ## Back-end
   - Node Js
   - Express Js
-  - Mongodb
+  - MongoDB
+  - JWT
