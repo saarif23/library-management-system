@@ -40,15 +40,9 @@ const Login = () => {
         const password = form.password.value;
         // console.log(email, password)
         signIn(email, password)
-            .then(result => {
-                console.log(result.user)
-                // navigate(location?.state ? location.state : "/")
-                // Swal.fire({
-                //     title: "Success!",
-                //     text: 'Sign In Successfully',
-                //     icon: "success",
-                // });
-
+            .then(() => {
+                // console.log(result.user)
+           
                 const user = { email }
                 console.log("user in login", user);
                 axios.post('https://library-management-system-server-ivory.vercel.app/jwt', user)
