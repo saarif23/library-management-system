@@ -42,7 +42,7 @@ const Login = () => {
         signIn(email, password)
             .then(() => {
                 // console.log(result.user)
-           
+
                 const user = { email }
                 console.log("user in login", user);
                 axios.post('https://library-management-system-server-ivory.vercel.app/jwt', user)
@@ -93,7 +93,6 @@ const Login = () => {
                             <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered input-sm hover:input-success w-full" required />
                             <span onClick={() => setShowPassword(!showPassword)} className="absolute right-3">{showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
                         </div>
-                        {/* <input type="password" name="password" placeholder="Enter password" className="input input-bordered input-sm hover:input-success" required /> */}
                     </div>
                     <p className="p-1 text-sm py-5 ">By continuing, you agree to <span className="cursor-pointer text-blue-800 hover:underline">Terms & Conditions of Use</span> and <span className="cursor-pointer text-blue-800 hover:underline">Privacy Notice</span>.</p>
 
