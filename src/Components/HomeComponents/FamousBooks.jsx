@@ -1,24 +1,26 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import useAxios from "../../Hooks/useAxios";
+// import useAxios from "../../Hooks/useAxios";
 import SingleBook from "./SingleBook";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const FamousBooks = () => {
     const [showAll, setShowAll] = useState(true);
-    const axios = useAxios()
+    // const axios = useAxios()
+    const axiosPublic = useAxiosPublic();
     const [books, setBooks] = useState([]);
     const filterBooks = books.filter(book => book.rating >= 4.90)
 
     useEffect(() => {
-        axios.get('/books')
+        axiosPublic.get('/books')
             .then(res => {
                 setBooks(res.data)
             })
             .catch(error => console.log(error))
 
-    }, [axios])
+    }, [axiosPublic])
     return (
         <div className="max-w-6xl mx-auto my-10">
 

@@ -51,13 +51,13 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
             if (currentUser) {
                 axios.post('https://library-management-system-server-ivory.vercel.app/jwt', userEmail, { withCredentials: true })
-                    .then(res => {
-                        console.log("token in useeffect ", res.data)
+                    .then(() => {
+                        // console.log("token in useeffect ", res.data)
                     })
             } else {
                 axios.post('https://library-management-system-server-ivory.vercel.app/logout', userEmail, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data)
+                    .then(() => {
+                        // console.log(res.data)
                     })
             }
         })

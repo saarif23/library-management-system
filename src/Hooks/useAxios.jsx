@@ -26,7 +26,7 @@ const useAxios = () => {
                     .catch(error => console.log(error))
             }
         })
-    }, [])
+    }, [logout,navigate])
 
     return instance;
 }

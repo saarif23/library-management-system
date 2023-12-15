@@ -7,27 +7,25 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 
-
-
-
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
+    const from = location.state?.from?.pathname || "/"
 
     //login with google
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
+                navigate(from, { replace: true });
                 console.log(result.user)
                 Swal.fire({
                     title: "Success!",
                     text: 'Sign In Successfully',
                     icon: "success",
                 });
-                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error)
@@ -56,7 +54,7 @@ const Login = () => {
                 axios.post('https://library-management-system-server-ivory.vercel.app/jwt', user)
                     .then(res => {
                         if (res.data.success) {
-                            navigate(location?.state ? location.state : "/")
+                            navigate(from, { replace: true });
                         }
                         Swal.fire({
                             title: "Success!",
