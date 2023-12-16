@@ -134,10 +134,14 @@ const BookDetails = () => {
         <>
             <div className="max-w-6xl mx-auto my-10">
                 <Helmet>
-                <title>Knowledge Cafe | Book Details</title>
-            </Helmet>
-                <div className=" p-5 lg:flex justify-between bg-gray-100 rounded-lg shadow-xl ">
-                    <h3 className="max-md:text-2xl text-4xl flex-1  font-medium">{book_name} </h3>
+                    <title>Knowledge Cafe | Book Details</title>
+                </Helmet>
+                <div
+                    data-aos="fade-down"
+                    data-aos-delay="100"
+                    data-aos-duration="2000"
+                    className=" p-5 lg:flex justify-between bg-gray-100 rounded-lg shadow-xl ">
+                    <h3 className="max-md:text-2xl text-black text-4xl flex-1  font-medium">{book_name} </h3>
                     <div className="flex justify-between items-center gap-10">
 
                         {
@@ -150,11 +154,19 @@ const BookDetails = () => {
 
                 <div className="flex py-10 max-lg:flex-col lg:flex-row items-center gap-5  ">
 
-                    <div className="flex-1 mx-5">
+                    <div
+                        data-aos="fade-right"
+                        data-aos-delay="100"
+                        data-aos-duration="2000"
+                        className="flex-1 mx-5">
                         <img className="w-full" src={image} alt="" />
                         <p className="pt-10">{''}</p>
                     </div>
-                    <div className="flex-1">
+                    <div
+                        data-aos="fade-left"
+                        data-aos-delay="100"
+                        data-aos-duration="2000"
+                        className="flex-1">
                         <div className=" mx-5 space-y-5 ">
                             <h3 className="text-5xl font-Roboto  font-medium">{book_name} </h3>
                             <p> <span className="font-bold">Author Name : </span>{author_name}</p>
@@ -190,14 +202,18 @@ const BookDetails = () => {
 
                                 <Link to={`/readBook/${_id}`}> <div className="flex justify-center items-center gap-2 py-2 px-5 rounded-md border cursor-pointer"> <MdFavorite></MdFavorite> <span>Read This Book</span></div></Link>
                             </div>
-                            <div className="flex justify-center items-center gap-2 p-2 rounded-md bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <SiIconfinder></SiIconfinder> <span>FIND A RETAILER</span></div>
+                            <div className="flex justify-center items-center gap-2 p-2 rounded-md text-black bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <SiIconfinder></SiIconfinder> <span>FIND A RETAILER</span></div>
 
                         </div>
 
                     </div>
 
                 </div>
-                <div className=" space-y-5">
+                <div
+                 data-aos="fade-up"
+                 data-aos-delay="100"
+                 data-aos-duration="2000" 
+                className=" space-y-5">
                     <p>{book_content1}</p>
                     <p>{book_content2}</p>
                     <p>{book_content3}</p>

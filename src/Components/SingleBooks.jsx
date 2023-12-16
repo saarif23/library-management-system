@@ -5,7 +5,12 @@ import PropTypes from 'prop-types'
 const SingleBooks = ({ book }) => {
     const { _id, book_name, image, author_name, book_category, quantity, rating } = book;
     return (
-        <div>
+        <div
+        data-aos="fade-up"
+       
+        data-aos-delay="100"
+        data-aos-duration="2000"
+        >
             <div className="border border-sky-500 rounded-lg max-lg:mx-5  flex flex-col justify-between">
                 <img className="w-full h-[400px] rounded-t-lg" src={image} alt="productImage" />
                 <hr />

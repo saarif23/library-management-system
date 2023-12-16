@@ -15,12 +15,20 @@ const ReadBooks = () => {
                 <title>Knowledge Cafe | Read Book</title>
             </Helmet>
             <div className="max-w-6xl mx-auto  py-16 max-md:mx-5">
-                <h3 className="text-5xl text-center py-7 font-bold">{book_name}</h3>
+                <h3
+                    data-aos="fade-up"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    className="text-5xl text-black text-center py-7 font-bold">{book_name}</h3>
                 <div className="flex flex-col md:flex-row-reverse gap-8">
                     <div className="flex-[2] space-y-4">
 
-                        <div className="space-y-3 pt-5">
-                            <p><span className="text-black font-semibold text-lg">Summary of the Book :</span> {short_description}</p>
+                        <div
+                            data-aos="fade-down"
+                            data-aos-delay="50"
+                            data-aos-duration="1000"
+                            className="space-y-3 pt-5 text-black">
+                            <p><span className=" font-semibold text-lg">Summary of the Book :</span> {short_description}</p>
                             <p ><span className="text-xl font-semibold">Writer : </span>{author_name}</p>
                             <p><span className="text-xl font-semibold" >Type of Book :</span> {book_category}</p>
                             <p><span className="text-xl font-semibold" >Published :</span> {publisher} ({published_date})</p>
@@ -29,14 +37,26 @@ const ReadBooks = () => {
 
 
                         <p className="text-2xl font-bold underline text-blue-700 pt-10">Content of Book </p>
-                        <p>{book_content1}</p>
+                        <p
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                            data-aos-duration="2000"
+                            className="text-black">{book_content1}</p>
 
                     </div>
-                    <div className="flex-[1]">
+                    <div
+                        data-aos="fade-right"
+                        data-aos-delay="100"
+                        data-aos-duration="2000"
+                        className="flex-[1]">
                         <img className="w-full h-[450px]" src={image} alt="" />
                     </div>
                 </div>
-                <div className="py-5 space-y-5">
+                <div
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    data-aos-duration="2000"
+                    className="py-5 space-y-5 text-black">
                     <p>{book_content2}</p>
                     <p>{book_content3}</p>
                 </div>

@@ -4,7 +4,13 @@ const SingleBook = ({ book }) => {
     const { book_name, image, book_category, rating, author_name
     } = book;
     return (
-        <div className='my-2'>
+        <div
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-center"
+            data-aos-delay="100"
+            data-aos-duration="2000"
+
+            className='my-2'>
             <div className="flex h-full items-center gap-5 rounded-md border">
                 <div className="w-1/3 ">
                     <img className="w-full " src={image} alt="Buds" />
