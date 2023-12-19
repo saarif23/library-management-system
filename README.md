@@ -1,7 +1,7 @@
 #  Knowledge Cafe
 
 ## Client Site Live link 
-https://iridescent-croissant-76b1d3.netlify.app/
+https://bespoke-piroshki-ccd535.netlify.app
 
 
 ## Server Site live link 
@@ -13,22 +13,22 @@ https://github.com/saarif23/library-management-system-server
 
 
 #  project features
-- in this website user can borro a book 
-- without login  the user can not access the books information  
+- On this website, users can borrow a book 
+- without login,  the user can not access the book's information  
 - a login user can  access the book information and read the book online in read this book click
 - a valid user can update the book  information and add a new book 
-- when user borrow a book the book quantity in reduced by 1 and when he/she return the book then the book quantity in incress by 1 
-- It's  Amazing to toggle dark and light theme, Navbar will show toggle button.
-- Here this project if any books rating over `4.80` this product dynamically show in famous books in `home page`.
+- when the user borrows a book the book quantity is reduced by 1 and when he/she returns the book the book quantity is increased by 1 
+- It's  Amazing to toggle dark and light themes, The Navbar will show the toggle button.
+- Here this project if any book rating is over `4.80` this product dynamically show famous books on the `home page`.
 - This project is responsive for small medium and large devices.
-- Using multiple tools, Css framework for styles and toggle theme, javaScript, react, sweet alert for success and error message, jwt token  varifiwer for verify the user 
-- firebase authentication method add: email, `password` and `login with google `
-- In this project when the user register and login our page user will see our books details 
-- When the user logged in navbar show his/her photos and name  and also a logout button 
-- added mongodb for database
-- If user logged in he/she see his/her borrow books  in borrow books  page.
+- Using multiple tools, CSS framework for styles and toggle theme, javaScript, react, sweet alert for success and error message, jwt token  verifier for verify the user 
+- firebase authentication method add: email, `password` and `login with Google`
+- In this project when the user registers and login our page user will see our book details 
+- When the user logged in navbar shows his/her photos and name  and also a logout button 
+- added MongoDB for database
+- If the user logged in he/she sees his/her borrow books  on the borrow books  page.
 - added 404 error page 
-- server side deploy in vercel 
+- server-side deploy in Vercel 
 
 
 
