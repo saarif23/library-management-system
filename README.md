@@ -4,10 +4,6 @@
 https://bespoke-piroshki-ccd535.netlify.app
 
 
-## Server Site live link 
- https://library-management-system-server-ivory.vercel.app/
-
-
 ## Server Side Code Link
 https://github.com/saarif23/library-management-system-server
 
