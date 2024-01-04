@@ -21,7 +21,7 @@ const NovelistAuthor = () => {
                         <div className='text-center'>
                             <h3 className='text-2xl font-bold'>Charles Dickens</h3>
                             <p>A prolific English novelist known for classics like A Tale of Two Cities, Oliver Twist and Great Expectations.</p>
-                            <span className='flex justify-center pt-5 text-orange-600 text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
+                            <span className='flex justify-center pt-5 text-[#176B87] text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
                         </div>
                     </div>
                     <div
@@ -35,7 +35,7 @@ const NovelistAuthor = () => {
                         <div className='text-center '>
                             <h3 className='text-2xl font-bold'>Jane Austen</h3>
                             <p> An English novelist celebrated for her works, including Pride and Prejudice and Sense and Sensibility.</p>
-                            <span className='flex justify-center pt-5 text-orange-600 text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
+                            <span className='flex justify-center pt-5 text-[#176B87] text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
                         </div>
                     </div>
                     <div
@@ -48,7 +48,7 @@ const NovelistAuthor = () => {
                         <div className='text-center '>
                             <h3 className='text-xl font-bold'>William Shakespeare</h3>
                             <p> Often referred to as the greatest playwright and poet in the English language, known for works like Romeo....</p>
-                            <span className='flex justify-center pt-5 text-orange-600 text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
+                            <span className='flex justify-center pt-5 text-[#176B87] text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
                         </div>
                     </div>
                     <div
@@ -62,7 +62,7 @@ const NovelistAuthor = () => {
                         <div className='text-center '>
                             <h3 className='text-2xl font-bold'>Leo Tolstoy </h3>
                             <p>  The Russian author of epic novels such as War and Peace and Anna Karenina.</p>
-                            <span className='flex justify-center pt-5 text-orange-600 text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
+                            <span className='flex justify-center pt-5 text-[#176B87] text-3xl cursor-pointer'> <BsArrowRight></BsArrowRight></span>
                         </div>
                     </div>
 

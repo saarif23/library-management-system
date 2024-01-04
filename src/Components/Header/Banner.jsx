@@ -23,7 +23,7 @@ const Banner = () => {
                 academic journals, helping individuals with academic and
                 professional research.
               </p>
-              <button className="py-2 px-2 mad-md:px-5 rounded-md font-bold bg-orange-400 text-white max-md:text-sm max-md:px-10 max-md:hidden">
+              <button className="py-2 px-2 mad-md:px-5 rounded-md font-bold bg-[#176B87] text-white max-md:text-sm max-md:px-10 max-md:hidden">
                 Learn More...
               </button>
             </div>
@@ -83,7 +83,7 @@ const Banner = () => {
                 academic journals, helping individuals with academic and
                 professional research.
               </p>
-              <button className="py-2 px-2 mad-md:px-5 rounded-md font-bold bg-orange-400 text-white max-md:text-sm max-md:px-10 max-md:hidden">
+              <button className="py-2 px-2 mad-md:px-5 rounded-md font-bold bg-[#176B87] text-white max-md:text-sm max-md:px-10 max-md:hidden">
                 Learn More...
               </button>
             </div>
@@ -113,7 +113,7 @@ const Banner = () => {
                 academic journals, helping individuals with academic and
                 professional research.
               </p>
-              <button className="py-2 px-2 mad-md:px-5 rounded-md font-bold bg-orange-400 text-white max-md:text-sm max-md:px-10 max-md:hidden">
+              <button className="py-2 px-2 mad-md:px-5 rounded-md font-bold bg-[#176B87] text-white max-md:text-sm max-md:px-10 max-md:hidden">
                 Learn More...
               </button>
             </div>

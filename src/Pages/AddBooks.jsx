@@ -67,9 +67,9 @@ const AddBooks = () => {
 
                 <Link to="/"><button className="p-5 flex font-Playfair items-center mx-auto hover:text-sky-700 hover:underline">Back To Home</button></Link>
                 <div className="max-w-5xl mx-auto py-8 rounded-md">
-                    <div className="max-w-2xl space-y-3 mx-auto">
-                        <h3 className="text-3xl text-center font-Roboto  font-extrabold">Add New Books</h3>
-                        <p className="font-Playfair">Ignorant people you get to know them by the way they speak, behave, and live – they are disorganised. The difference between ignorant people and knowledgeable people – ignorant people are foolish knowledgeable people are wise. Foolishness is not sold anywhere; it is a fatal disease acquired by persons who refuse to learn. Wisdom is not sold anywhere; it is a reward for persons who are hungry for knowledge</p>
+                    <div className="max-w-2xl space-y-3 mx-auto mb-10">
+                        <h3 className="text-3xl text-center font-Roboto  font-extrabold text-[#176B87] ">Add New Books</h3>
+                        <p className="font-Playfair">Ignorant people you get to know them by the way they speak, behave, and live – they are disorganised. The difference between ignorant people and knowledgeable people – ignorant people are foolish knowledgeable people are wise. ...</p>
                     </div>
                     <form onSubmit={handleFromSubmit} className="px-10 font-Playfair">
                         {/* From row with name and author name */}
@@ -139,7 +139,7 @@ const AddBooks = () => {
                         {/* From Submit button */}
                         <div className="">
                             <div className="form-control w-full my-5">
-                                <input type="submit" value="Add Book" placeholder="Enter Category" className="input  bg-orange-100 font-bold w-full " />
+                                <input type="submit" value="Add Book" placeholder="Enter Category" className="input  bg-[#176B87] text-white font-bold w-full " />
                             </div>
 
                         </div>

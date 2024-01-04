@@ -11,7 +11,7 @@ const SingleBooks = ({ book }) => {
         data-aos-delay="100"
         data-aos-duration="2000"
         >
-            <div className="border border-sky-500 rounded-lg max-lg:mx-5  flex flex-col justify-between">
+            <div className="border border-[#176B87] rounded-lg max-lg:mx-5  flex flex-col justify-between">
                 <img className="w-full h-[400px] rounded-t-lg" src={image} alt="productImage" />
                 <hr />
                 <div className="p-3">
@@ -28,7 +28,7 @@ const SingleBooks = ({ book }) => {
                     </div>
                 </div>
                 <Link to={`/updateBooks/${_id}`}>
-                    <div className="flex justify-center w-full items-center gap-2 p-2 bg-sky-500 rounded-b-lg text-white font-semibold">  <FaPen></FaPen> <span>Update Book</span></div>
+                    <div className="flex justify-center w-full items-center gap-2 p-2 bg-[#176B87] rounded-b-lg text-white font-semibold">  <FaPen></FaPen> <span>Update Book</span></div>
                 </Link>
             </div>
         </div>

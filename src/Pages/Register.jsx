@@ -79,7 +79,7 @@ const Register = () => {
             <Helmet>
                 <title>Knowledge Cafe | Register</title>
             </Helmet>
-            <div className="px-8 py-3 rounded-md m-10 border max-md:w-full w-1/3 mx-auto">
+            <div className="px-8 py-3 rounded-md m-10 border border-[#176B87]  max-md:w-full w-1/3 mx-auto">
                 <h3 className="text-3xl py-3 font-medium">Create Account </h3>
                 <form onSubmit={handleRegisterSubmit}>
                     <div className="form-control mb-2 ">
@@ -113,7 +113,7 @@ const Register = () => {
 
 
                     <div className="form-control py-5 ">
-                        <input type="submit" value="Sign Up" className="cursor-pointer input input-sm bg-slate-400" />
+                        <input type="submit" value="Sign Up" className="cursor-pointer input input-sm text-black bg-[#176B87]" />
                     </div>
 
 
