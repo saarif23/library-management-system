@@ -145,7 +145,7 @@ const BookDetails = () => {
                     <div className="flex justify-between items-center gap-10">
 
                         {
-                            totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer btn btn-sm btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-red-800 hover:bg-red-700 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
+                            totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md  hover:bg-red-700 border cursor-pointer btn btn-sm btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 text-white rounded-md bg-[#176B87] hover:bg-red-700 border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
                         }
 
                     </div>
@@ -177,7 +177,7 @@ const BookDetails = () => {
                                 <ReactStarsRating className="flex" value={rating} />
                                 <div className="flex gap-3">
                                     <p>{rating} (6)</p>
-                                    <p className="text-red-700 cursor-pointer  hover:underline">Write a review</p>
+                                    <p className=" text-[#176B87] cursor-pointer  hover:underline">Write a review</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-5">
@@ -197,12 +197,12 @@ const BookDetails = () => {
                             </div>
                             <div className="flex gap-20">
                                 {
-                                    totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 rounded-md border cursor-pointer btn btn-md btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 rounded-md border cursor-pointer"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
+                                    totalQuantity <= 0 ? <div className="flex justify-center items-center gap-2 p-2 rounded-md border cursor-pointer btn btn-md btn-disabled"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div> : <div className="flex justify-center items-center gap-2 p-2 rounded-md border cursor-pointer border-[#176B87]"> <BsFillCartPlusFill></BsFillCartPlusFill> <span>{modal}</span></div>
                                 }
 
-                                <Link to={`/readBook/${_id}`}> <div className="flex justify-center items-center gap-2 py-2 px-5 rounded-md border cursor-pointer"> <MdFavorite></MdFavorite> <span>Read This Book</span></div></Link>
+                                <Link to={`/readBook/${_id}`}> <div className="flex justify-center items-center gap-2 py-2 px-5 rounded-md border border-[#176B87] cursor-pointer"> <MdFavorite></MdFavorite> <span>Read This Book</span></div></Link>
                             </div>
-                            <div className="flex justify-center items-center gap-2 p-2 rounded-md text-black bg-slate-100 hover:bg-slate-300 border cursor-pointer"> <SiIconfinder></SiIconfinder> <span>FIND A RETAILER</span></div>
+                            <div className="flex justify-center items-center gap-2 p-2 rounded-md text-white bg-[#176B87]  cursor-pointer"> <SiIconfinder></SiIconfinder> <span>FIND A RETAILER</span></div>
 
                         </div>
 

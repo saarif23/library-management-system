@@ -32,7 +32,7 @@ const Book = ({ book }) => {
                     </div>
                 </div>
                 <Link to={`/book/${_id}`}>
-                    <div className="flex justify-center items-center gap-5 p-2 rounded-md border w-full">  <FaEye></FaEye> <span>View Details</span></div>
+                    <div className="flex justify-center items-center gap-5 p-2 rounded-md border border-[#176B87] w-full">  <FaEye></FaEye> <span>View Details</span></div>
                 </Link>
             </div>
 
