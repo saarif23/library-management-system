@@ -6,8 +6,8 @@ const NovelistAuthor = () => {
         <div className=" py-10">
             <div className=' max-w-6xl mx-auto max-lg:px-5'>
                 <div className="flex max-md:flex-col flex-row justify-between max-md:gap-5 ">
-                    <h3 className="text-4xl font-bold text-centerfont-bold max-md:text-center">World <span className=' text-orange-400 '> Famous Novelist</span></h3>
-                    <span className='flex cursor-pointer justify-center items-center gap-3 bg-orange-400 px-5 py-2 rounded-md text-white '>View More <AiOutlineArrowRight></AiOutlineArrowRight> </span>
+                    <h3 className="text-4xl font-bold text-centerfont-bold max-md:text-center">World <span className=' text-[#176B87] '> Famous Novelist</span></h3>
+                    <span className='flex cursor-pointer justify-center items-center gap-3 bg-[#176B87] px-5 py-2 rounded-md text-white '>View More <AiOutlineArrowRight></AiOutlineArrowRight> </span>
                 </div>
 
                 <div className='grid font-Playfair grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-10'>
